@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Update User Info {% endblock title %}
+  
+
+{% block content %}
+    <div class="greetings">     
+        <p> This is the Update User Info page </p>
+        <p> Hello {{user}} </p>
+    </div>
+    
+    <div style="width:90%; margin:auto; ">
+      <h4 style="text-align:center;"> Update user info of {{user}}: </h4>
+    </div>
+
+
+    <form action="" method="POST" style="width:50%; margin:auto;" novalidate>
+        {% csrf_token %}
+        <!-- {{form|crispy}} -->     <!-- here form is commented but |crispy is active -->
+        
+        {% if form.non_field_errors %}
+        {% for er in form.non_field_errors %}
+            <p class="bg-danger text-white p-3"> {{er}} </p>
+        {% endfor %}
+        {% endif %}
+        
+        {% for item in form %}
+        {{ item.label_tag }}
+        {{ item }}
+        {{ item.errors|striptags }}
+        {% endfor %}
+        <button class="btn btn-info mt-3 mb-3">Submit</button>
+    </form>
+
+
+    {% block img %}
+        <div class="image"><img src="{% static 'images/image12.jpg' %}" alt="Photo of Yuna" ></div>
+    {% endblock img %}
+
+{% endblock content %}

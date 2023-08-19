@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About us {% endblock title %}
+  
+
+{% block content %}
+    <div class="greetings">     
+        <p> This is the About page of Book Store Management System (2nd version) </p>
+        <p> This is from Class Based View (updated) </p>
+        <h4> Name: {{name}} </h4>
+        <h4> Age: {{age}} </h4>
+        <h4> Roll: {{roll}} </h4>
+        <h4> Author: {{author}} </h4>
+    </div>    
+            
+        
+
+
+    {% block img %}
+        <div class="image"><img src="{% static 'images/image3.jpg' %}" alt="Photo of Yuna" ></div>
+    {% endblock img %}
+
+{% endblock content %}

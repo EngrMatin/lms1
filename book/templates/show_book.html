@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Show Book {% endblock title %}
+  
+
+{% block content %}
+    <div class="greetings">     
+        <p> This is the Show Book page </p>
+    </div>
+    
+    <div style="width:80%; margin:auto; ">
+      <h4 style="text-align:center;"> Books Info: </h4>
+      {% if book_list %}
+
+      <table style="width:100%; " class="table table-success table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Sl No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for x in book_list %}
+          <tr>
+            <td>{{x.id}}</td>
+            <td><a href="{% url 'book_details' x.id %}" >{{x.title}}</a></td>
+            <td>{{x.author}}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+      {% else %}
+      <p> No data available </p>
+      {% endif %}
+    </div>
+    <br>
+
+
+    {% block img %}
+        {% comment %} <div class="image"><img src="{% static 'images/image12.jpg' %}" alt="Photo of Yuna" ></div><br> {% endcomment %}
+    {% endblock img %}
+
+{% endblock content %}

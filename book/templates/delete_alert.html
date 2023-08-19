@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Delete Alert {% endblock title %}
+
+
+{% block content %}
+    <div class="greetings">     
+        <p> This is the Delete Confirmation page </p>
+    </div>
+    
+    
+    <div style="width:50%; margin:auto;">
+        <hr>Are you sure to delete?</hr>
+        <form method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button class="btn btn-info mb-3">Yes</button>
+        </form>
+    </div>
+
+    {% block img %}
+        <div class="image"><img src="{% static 'images/image1.jpg' %}" alt="Photo of Yuna" ></div>
+    {% endblock img %}
+
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} User Profile {% endblock title %}
+  
+
+{% block content %}
+    <div class="greetings">     
+        <p> This is the User Profile page </p>
+        <p> Hello {{user}} </p>
+    </div>
+    
+    <div style="width:90%; margin:auto; ">
+      <h4 style="text-align:center;"> User Profile of {{user}}: </h4>
+    </div>
+
+    <div>
+        <a class="btn btn-primary" href="{% url 'change_pass' %}">Change Password</a>
+        <a class="btn btn-warning" href="{% url 'reset_pass' %}">Reset Password</a>
+        <a class="btn btn-info" href="{% url 'update_user' %}">Update Profile </a>
+    </div>
+    <br>
+
+    {% block img %}
+        {% comment %} <div class="image"><img src="{% static 'images/image12.jpg' %}" alt="Photo of Yuna" ></div><br> {% endcomment %}
+    {% endblock img %}
+
+{% endblock content %}
