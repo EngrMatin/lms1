@@ -1,1 +1,1 @@
-# lms1
+# Library Management System Project
